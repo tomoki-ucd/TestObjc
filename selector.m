@@ -13,7 +13,7 @@
 
 int main(int argc, char* argv[]){
 	id  obj;
-	SEL method;		//SEL is the type to store a selector that is to identify a method. 
+	SEL method;		//SEL is the type to store a selector that is to identify a method using the method name created during compile time.. 
 	obj = [Test new];
 	method = @selector(Write);		//@selector(someMethod); is the way to return SEL value of someMethod.
 
