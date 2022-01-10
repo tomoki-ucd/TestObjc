@@ -6,7 +6,7 @@
 	int x, y;
 }
 -(id)init;
--(id)initWithPoint:(int)x int:(int)y;	//Designated Initializer
+-(id)initWithPoint:(int)x int:(int)y;	//Designated Initializer, which requires all the necessary arguments for initialization.
 -(int)getX;
 -(int)getY;
 @end
