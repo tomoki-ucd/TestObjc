@@ -2,25 +2,17 @@
 // You can use Category to add new method to an existing class.
 // You can add class and instance method using Category, but not instance variable.
 
-#import <stdio.h>
-#import <objc/NSObject.h>
-#import "testCategoryMain.h"
-#import "testCategoryChild.h"
+//#import <stdio.h>
+//#import <objc/NSObject.h>
+#import "CategoryMain.h"		//Need to include Main class declaration.
+#import "CategoryChild.h"
 
+//@interface Test (Fate)		//Category declaration.
+//-(void)WriteB;
+//@end
 
-
-@implementation Test
--(void)WriteA{
-	printf("I am writing this at Coffee mansion\n");
+@implementation Test (Fate)
+-(void)WriteB{
+	printf("This is category\n");
 }
 @end
-
-
-int main(int argc, char* argv[]){
-	id obj = [Test new];
-	[obj WriteA];
-	[obj WriteB];
-	[obj release];
-
-	return 0;
-}
