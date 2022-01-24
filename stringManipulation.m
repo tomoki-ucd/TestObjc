@@ -2,6 +2,8 @@
 #import <Foundation/NSString.h>	//to use NSString
 #import <stdio.h>
 
+//comment
+
 int main(int argc, char* argv[]){
 	
 	char* txt_p = "Testing String Manipulation.";
@@ -48,6 +50,59 @@ int main(int argc, char* argv[]){
 	NSLog(@"initWithData:(NSData*) encoding:(NSStringEncoding) creates NSString from string bytes encoded in the designated character code.\n");
 
 	
+	//initWithFormat:(NSString*)format inits the receiver with the provided format.
+	NSString* txt3 = [[NSString alloc] initWithFormat:@"Number = %d", 20];
+	NSLog(@"%@", txt3);		//%@ is format identifier for NSString.
+
+	//isEqualToString:(NSString*) checks if the argument string is equal to that of the receiver.
+	
+	txt = @"Snoopy";
+	BOOL isEqual = [txt isEqualToString:@"Snoopy"];
+	if(isEqual){
+	//caseInsensitiveCompare:(NSString*) checkes if two strings match regardless capital and noncapital letter and returns the followings.
+		NSComparisonResult result = [txt caseInsensitiveCompare:@"Onoopy"];
+		switch(result){
+		case NSOrderedSame:
+			NSLog(@"Same order.");
+			break;
+		case NSOrderedAscending:
+			NSLog(@"%@ is smaller than the argument, meaning ascending order.", txt);
+			break;
+		case NSOrderedDescending:
+			NSLog(@"%@ is bigger than the argument, meaning descending order.", txt);
+			break;
+		}
+	}
+
+	//hasPrefix:(NSString*) returns bool value by checking if the receiver includes the argument string at the beginning.
+	//hasSuffix:(NSString*) returns bool value by checking if the receiver includes the argument stringa at the ending.
+	txt = @"Learning objc is fun!";
+	BOOL hasPrefix = [txt hasPrefix:@"Learning"];
+	if(hasPrefix){
+		BOOL hasSuffix = [txt hasSuffix:@"fun!"];
+		if(hasSuffix){
+			NSLog(@"It has both prefix and suffix.");
+		}
+	}
+
+	//stringByAppendingString(NSString*) creates a string by appending the argument.
+	//stringByAddingFormat(NSString*) creates a string by appending the 2nd argument in the format designated by the 1st argument.
+	txt = @"I am ";
+	txt = [txt stringByAppendingString:@"at the "];
+	txt = [txt stringByAppendingFormat:@"%d", 100];
+	NSLog(@"%@", txt);
+
+	//substringToIndex:(NSUInteger) returns string up to the argument index.
+	//substringToFrom:(NSUInteger) returns string from the argument index.
+	//substringWithRange:(NSUInteger) returns string in the argument range.
+	txt = @"123456789.";
+	NSString* subTxt = [txt substringToIndex:4];
+	NSString* subTxt2 = [txt substringFromIndex:6];
+	NSRange range = NSMakeRange(3, 5);		//The second argument is the number of characters counted from the 1st argument, not from the beginning.
+	NSString* subTxt3 = [txt substringWithRange:range];
+	NSLog(@"To4=%@, From6=%@, Range3to5=%@", subTxt, subTxt2, subTxt3);
+	
+
 
 	return 0;
 }
